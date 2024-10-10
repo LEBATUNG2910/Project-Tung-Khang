@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -18,11 +19,17 @@ function App() {
               Menu
             </Link>
           </li>
+          <li>
+            <Link to="/login" className="text-white">
+              Login
+            </Link>
+          </li>
         </ul>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
