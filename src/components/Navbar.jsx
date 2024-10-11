@@ -18,6 +18,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+          <Link to="/login" className="hover:underline">
+              Login
+            </Link>
+            </li>
+          <li>
             <Link to="/about" className="hover:underline">
               About
             </Link>

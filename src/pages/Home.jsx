@@ -109,6 +109,7 @@ const Home = () => {
         </div>
       </div>
 
+
       {/* About Us Section */}
       <div className="bg-gray-200 p-12 mt-16">
         <div className="container mx-auto">
