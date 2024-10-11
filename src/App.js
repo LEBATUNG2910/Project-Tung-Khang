@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Im
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Login from "./pages/Login";
-import About from "./pages/About"; // Assuming you have an About page
-import Contact from "./pages/Contact"; // Assuming you have a Contact page
 import Navbar from "./components/Navbar"; // Import the Navbar
 import Footer from "./components/Footer";
 
@@ -19,8 +17,6 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>
