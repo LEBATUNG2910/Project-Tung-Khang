@@ -1,45 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
-
-const CartIcon = () => (
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-</svg>
-);
+import { IonIcon } from "@ionic/react"; // Ionicon for menu
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <nav className="bg-yellow-100 text-blue-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Delicious Donuts</h1>
-        <ul className="flex space-x-4 items-center">
-          <li>
-            <Link to="/home" className="hover:underline">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/menu" className="hover:underline">
-              Menu
-            </Link>
-          </li>
-          <li>
-            <Link to="/login" className="hover:underline">
-              Login
-            </Link>
-          </li>
-          {/* Cart Icon */}
-          <li>
-            <Link to="/cart" className="relative">
-              <CartIcon />
-              {/* <span className="absolute top-0 right-0  text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">
-                3
-              </span> Example for cart items count */}
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <header className="bg-white p-5">
+      <nav className="flex justify-between items-center w-[92%] mx-auto">
+        {/* Logo */}
+        <div>
+        <h1 className="text-2xl font-bold ml-4">Delicious Donuts</h1>
+         
+        </div>
+
+        {/* Navigation Links */}
+        <div
+          className={`nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[30vh] left-0 ${
+            isMenuOpen ? "top-[9%] z-50" : "top-[-100%] z-0"
+          } md:w-auto w-full flex items-center px-5`}
+        >
+          <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+            <li>
+              <Link to="/home" className="hover:text-gray-500">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/menu" className="hover:text-gray-500">
+                Menu
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-gray-500">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-gray-500">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Sign-in Button and Menu Icon */}
+        <div className="flex items-center gap-6">
+         
+          {/* Mobile Menu Icon */}
+          <IonIcon
+            name={isMenuOpen ? "close" : "menu"}
+            className="text-3xl cursor-pointer md:hidden"
+            onClick={handleMenuToggle}
+          />
+        </div>
+      </nav>
+    </header>
   );
 };
 

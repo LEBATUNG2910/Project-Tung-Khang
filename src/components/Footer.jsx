@@ -27,7 +27,7 @@ const Footer = () => {
           <p>Email: info@deliciousdonuts.com</p>
         </div>
         <div className="w-full md:w-1/3 mb-6 md:mb-0">
-          <h3 className="text-xl font-bold mb-2">Quick Links</h3>
+          <h3 className="text-xl font-bold mb-2">Quick Action</h3>
           <ul>
             <li>
               <a href="/home" className="hover:text-blue-400">
